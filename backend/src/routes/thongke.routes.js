@@ -16,7 +16,7 @@ const roleMiddleware = require('../middlewares/role.middleware');
 // Lấy tổng quan dashboard
 router.get('/dashboard', 
   authMiddleware, 
-  roleMiddleware(['admin']), 
+  roleMiddleware(['admin', 'nhanvien']), 
   thongkeController.getDashboard
 );
 
@@ -24,7 +24,7 @@ router.get('/dashboard',
 // Query: { days }
 router.get('/revenue/daily', 
   authMiddleware, 
-  roleMiddleware(['admin']), 
+  roleMiddleware(['admin', 'nhanvien']), 
   thongkeController.getDailyRevenue
 );
 
@@ -32,7 +32,7 @@ router.get('/revenue/daily',
 // Query: { weeks }
 router.get('/revenue/weekly', 
   authMiddleware, 
-  roleMiddleware(['admin']), 
+  roleMiddleware(['admin', 'nhanvien']), 
   thongkeController.getWeeklyRevenue
 );
 
@@ -40,7 +40,7 @@ router.get('/revenue/weekly',
 // Query: { months }
 router.get('/revenue/monthly', 
   authMiddleware, 
-  roleMiddleware(['admin']), 
+  roleMiddleware(['admin', 'nhanvien']), 
   thongkeController.getMonthlyRevenue
 );
 
@@ -48,7 +48,7 @@ router.get('/revenue/monthly',
 // Query: { limit }
 router.get('/dishes/top', 
   authMiddleware, 
-  roleMiddleware(['admin']), 
+  roleMiddleware(['admin', 'nhanvien']), 
   thongkeController.getTopDishes
 );
 
@@ -56,7 +56,7 @@ router.get('/dishes/top',
 // Query: { limit }
 router.get('/customers/top', 
   authMiddleware, 
-  roleMiddleware(['admin']), 
+  roleMiddleware(['admin', 'nhanvien']), 
   thongkeController.getTopCustomers
 );
 
@@ -64,7 +64,7 @@ router.get('/customers/top',
 // Query: { fromDate, toDate }
 router.get('/profit', 
   authMiddleware, 
-  roleMiddleware(['admin']), 
+  roleMiddleware(['admin', 'nhanvien']), 
   thongkeController.getProfitReport
 );
 
@@ -72,7 +72,7 @@ router.get('/profit',
 // Query: { status }
 router.get('/inventory', 
   authMiddleware, 
-  roleMiddleware(['admin']), 
+  roleMiddleware(['admin', 'nhanvien']), 
   thongkeController.getInventoryReport
 );
 
@@ -80,7 +80,7 @@ router.get('/inventory',
 // Query: { fromDate, toDate }
 router.get('/staff-performance', 
   authMiddleware, 
-  roleMiddleware(['admin']), 
+  roleMiddleware(['admin', 'nhanvien']), 
   thongkeController.getStaffPerformance
 );
 

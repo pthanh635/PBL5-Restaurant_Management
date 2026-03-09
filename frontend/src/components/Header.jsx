@@ -1,30 +1,17 @@
-import { Link, useNavigate } from 'react-router-dom';
-import { getUser, removeToken, removeUser } from '../utils/auth';
-import '../styles/Header.css';
+import React from 'react';
+import { useAuth } from '../hooks/useAuth';
 
-export function Header() {
-  const user = getUser();
-  const navigate = useNavigate();
+export default function Header() {
+	const { user, logout } = useAuth();
 
-  const handleLogout = () => {
-    removeToken();
-    removeUser();
-    navigate('/login');
-  };
-
-  return (
-    <header className="header">
-      <div className="header-left">
-        <h1 className="logo">🍽️ Nhà Hàng</h1>
-      </div>
-      <div className="header-right">
-        <span className="user-info">
-          {user?.Ten} ({user?.VaiTro})
-        </span>
-        <button onClick={handleLogout} className="logout-btn">
-          Đăng xuất
-        </button>
-      </div>
-    </header>
-  );
+	return (
+		<header className="app-header">
+			<div className="brand">Quản lý Nhà hàng</div>
+			<div className="header-right">
+				{user && <span className="user">Xin chào, {user.TenNguoiDung || user.name || 'Người dùng'}</span>}
+				<button className="btn small" onClick={logout}>Đăng xuất</button>
+			</div>
+		</header>
+	);
 }
+
